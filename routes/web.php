@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Client\AuthController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -17,9 +19,11 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', [HomeController::class,'index']);
+Route::get( 'chi-tiet-san-pham/{slug}', [Product::class, 'detail']);
 
 Route::get('/register', [AuthController::class,'register']);
 Route::get('/login', [AuthController::class,'login']);
+
 
 
 Route::get('/posts',function(){
